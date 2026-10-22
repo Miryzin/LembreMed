@@ -1,97 +1,97 @@
 * {
-    box-sizing:border-box;
+    box-sizing: border-box;
 }
 
 body {
-    margin:0;
-    font-family:Arial, Helvetica, sans-serif;
-    background-color:#f5f8f6;
-    color:#20332f;
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #f5f8f6;
+    color: #20332f;
 }
 
-/* Coloca o menu e o conteudo lado a lado*/
+/* Coloca o menu e o conteudo lado a lado */
 .container {
-    display:flex;
+    display: flex;
     min-height: 100vh;
 }
 
-/*menu lateral*/
+/* menu lateral */
 .menu {
     width: 250px;
-    background-color:#dcefe8;
-    padding:25px 20px;
+    background-color: #dcefe8;
+    padding: 25px 20px;
 }
 
-/*menu do site*/
+/* menu do site */
 .menu h2 {
-    color:#246b60;
-    margin-bottom:35px;
+    color: #246b60;
+    margin-bottom: 35px;
 }
 
-/*links do menu*/
+/* links do menu */
 .menu nav a {
-    display:block;
-    text-decoration:none;
-    color:#20332f;
-    padding:15px 10px;
-    margin-bottom:8px;
-    border-radius:8px;
+    display: block;
+    text-decoration: none;
+    color: #20332f;
+    padding: 15px 10px;
+    margin-bottom: 8px;
+    border-radius: 8px;
 }
 
-/*efeito ao passar o mouse */
+/* efeito ao passar o mouse */
 .menu nav a:hover {
-    background-color:#b9dfd0;
+    background-color: #b9dfd0;
 }
 
-/*area principal*/
+/* area principal */
 .conteudo {
-    flex:1;
+    flex: 1;
     padding: 35px;
 }
 
-/*cartões de conteúdo*/
+/* cartões de conteúdo */
 .card {
     background-color: white;
     padding: 25px;
-    margin: top 25px;
-    border-radius:12px;
+    margin-top: 25px;
+    border-radius: 12px;
     border: 1px solid #e0e9e4;
 }
 
-/*campos do formulario*/
+/* campos do formulario */
 input {
     display: block;
-    width:100%;
-    max-width:400px;
-    padding:12px;
-    margin:8px 0 18px;
-    border:1px solid #ccd9d2;
-    border-radius:6px;
+    width: 100%;
+    max-width: 400px;
+    padding: 12px;
+    margin: 8px 0 18px;
+    border: 1px solid #ccd9d2;
+    border-radius: 6px;
 }
 
-/*botao*/
+/* botao */
 button {
-    background-color:#246b60;
-    color:white;
-    padding:12px 20px;
-    border:none;
-    border-radius:6px;
-    cursor:pointer;
+    background-color: #246b60;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
 }
 
 button:hover {
-    background-color:#194f46;
+    background-color: #194f46;
 }
 
-/*adaptação para celular*/
-@media (max-width:600px) {
+/* adaptação para celular */
+@media (max-width: 600px) {
     .container {
-        flex-direction:column;
+        flex-direction: column;
     }
     .menu {
-        width:100%;
+        width: 100%;
     }
     .conteudo {
-        padding:20px;
+        padding: 20px;
     }
 }
