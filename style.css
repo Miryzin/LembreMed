@@ -1,3 +1,4 @@
+
 * {
     box-sizing: border-box;
 }
@@ -9,28 +10,31 @@ body {
     color: #20332f;
 }
 
-/* Coloca o menu e o conteudo lado a lado */
+/* Coloca o menu e o conteúdo lado a lado */
 .container {
     display: flex;
     min-height: 100vh;
 }
 
-/* menu lateral */
+/* Menu lateral */
 .menu {
     width: 250px;
     background-color: #dcefe8;
     padding: 25px 20px;
+    flex-shrink: 0;
 }
 
-/* menu do site */
+/* Título do menu */
 .menu h2 {
     color: #246b60;
     margin-bottom: 35px;
 }
 
-/* links do menu */
+/* Links do menu */
 .menu nav a {
-    display: block;
+    display: flex;
+    align-items: center;
+    gap: 12px;
     text-decoration: none;
     color: #20332f;
     padding: 15px 10px;
@@ -38,18 +42,31 @@ body {
     border-radius: 8px;
 }
 
-/* efeito ao passar o mouse */
+/* Ícones do menu */
+.menu-link i {
+    width: 22px;
+    height: 22px;
+    flex-shrink: 0;
+}
+
+/* Item selecionado */
+.menu nav a.active {
+    background-color: #b9dfd0;
+}
+
+/* Efeito ao passar o mouse */
 .menu nav a:hover {
     background-color: #b9dfd0;
 }
 
-/* area principal */
+/* Área principal */
 .conteudo {
     flex: 1;
+    min-width: 0;
     padding: 35px;
 }
 
-/* cartões de conteúdo */
+/* Cartões de conteúdo */
 .card {
     background-color: white;
     padding: 25px;
@@ -58,7 +75,7 @@ body {
     border: 1px solid #e0e9e4;
 }
 
-/* campos do formulario */
+/* Campos do formulário */
 input {
     display: block;
     width: 100%;
@@ -69,7 +86,7 @@ input {
     border-radius: 6px;
 }
 
-/* botao */
+/* Botão */
 button {
     background-color: #246b60;
     color: white;
@@ -83,14 +100,16 @@ button:hover {
     background-color: #194f46;
 }
 
-/* adaptação para celular */
+/* Adaptação para celular */
 @media (max-width: 600px) {
     .container {
         flex-direction: column;
     }
+
     .menu {
         width: 100%;
     }
+
     .conteudo {
         padding: 20px;
     }

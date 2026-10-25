@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -5,83 +6,175 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LembreMed</title>
     <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
 </head>
 <body>
 
     <div class="container">
+
+        <!-- MENU LATERAL -->
         <aside class="menu">
             <h2>LembreMed</h2>
 
-            <nav>
-                <!-- Adicionamos classes e atributos data-target para o JavaScript saber para onde navegar -->
-                <a href="#" class="menu-link active" data-target="secao-inicio">Início</a>
-                <a href="#" class="menu-link" data-target="secao-agenda">Agenda</a>
-                <a href="#" class="menu-link" data-target="secao-novo">Novo Medicamento</a>
-                <a href="#" class="menu-link" data-target="secao-config">Configurações</a>
-            </nav>
-        </aside>
+<nav>
+    <a href="#" class="menu-link active"
+       data-target="secao-inicio">
+        <i data-lucide="house"></i>
+        <span>Início</span>
+    </a>
 
+    <a href="#" class="menu-link"
+       data-target="secao-agenda">
+        <i data-lucide="calendar-days"></i>
+        <span>Agenda</span>
+    </a>
+
+    <a href="#" class="menu-link"
+       data-target="secao-novo">
+        <i data-lucide="pill"></i>
+        <span>Novo Medicamento</span>
+    </a>
+
+    <a href="#" class="menu-link"
+       data-target="secao-config">
+        <i data-lucide="settings"></i>
+        <span>Configurações</span>
+        </a>
+    </nav>
+</aside>
+
+        <!-- CONTEÚDO PRINCIPAL -->
         <main class="conteudo">
 
             <!-- SEÇÃO: INÍCIO -->
             <section id="secao-inicio" class="secao-conteudo">
                 <h1>Bem-vindo(a) ao LembreMed!</h1>
                 <p>Organize seus medicamentos e horários com facilidade.</p>
+
                 <div class="card">
                     <h2>Resumo do Dia</h2>
-                    <p>Aqui podes ver um resumo rápido dos teus remédios pendentes.</p>
+
+                    <p>
+                        Você tem
+                        <strong id="quantidadeMedicamentos">0</strong>
+                        medicamento(s) cadastrado(s).
+                    </p>
+
+                    <p>
+                        Próximo horário:
+                        <strong id="proximoHorario">Nenhum horário cadastrado</strong>
+                    </p>
                 </div>
             </section>
 
-            <!-- SEÇÃO: AGENDA (Onde ficam os medicamentos cadastrados) -->
-            <section id="secao-agenda" class="secao-conteudo" style="display: none;">
+            <!-- SEÇÃO: AGENDA -->
+            <section id="secao-agenda"
+                     class="secao-conteudo"
+                     style="display: none;">
+
                 <h1>Agenda de Medicamentos</h1>
                 <p>Consulte todos os seus horários agendados.</p>
-                
+
                 <section class="card">
                     <h2>Seus medicamentos</h2>
-                    <ul id="listaMedicamentos" style="list-style: none; padding: 0; margin-top: 15px;">
-                        <li id="mensagemVazia">Nenhum medicamento cadastrado ainda.</li>
+
+                    <ul id="listaMedicamentos"
+                        style="list-style: none; padding: 0; margin-top: 15px;">
+
+                        <li id="mensagemVazia">
+                            Nenhum medicamento cadastrado ainda.
+                        </li>
+
                     </ul>
                 </section>
             </section>
 
-            <!-- SEÇÃO: NOVO MEDICAMENTO (O formulário de cadastro) -->
-            <section id="secao-novo" class="secao-conteudo" style="display: none;">
+            <!-- SEÇÃO: NOVO MEDICAMENTO -->
+            <section id="secao-novo"
+                     class="secao-conteudo"
+                     style="display: none;">
+
                 <h1>Cadastrar Novo Medicamento</h1>
                 <p>Insira os dados do medicamento e o horário do lembrete.</p>
 
                 <section class="card">
-                    <h2>Adicionar medicamentos</h2>
+                    <h2>Adicionar medicamento</h2>
+
                     <form id="formMedicamento">
-                        <label for="medicamento">Nome do medicamento:</label>
-                        <input type="text" id="medicamento" placeholder="Ex:. Medicamento prescrito">
-                        
-                        <label for="horario">Horário</label>
-                        <input type="time" id="horario">
-                        
+
+                        <label for="medicamento">
+                            Nome do medicamento:
+                        </label>
+
+                        <input
+                            type="text"
+                            id="medicamento"
+                            placeholder="Ex.: Medicamento prescrito"
+                            required
+                        >
+
+                        <label for="horario">Horário:</label>
+
+                        <input
+                            type="time"
+                            id="horario"
+                            required
+                        >
+
                         <button type="submit">Adicionar</button>
+
                     </form>
                 </section>
             </section>
 
             <!-- SEÇÃO: CONFIGURAÇÕES -->
-            <section id="secao-config" class="secao-conteudo" style="display: none;">
+            <section id="secao-config"
+                     class="secao-conteudo"
+                     style="display: none;">
+
                 <h1>Configurações</h1>
                 <p>Ajuste as preferências da sua aplicação.</p>
-                
+
                 <section class="card">
                     <h2>Preferências de Notificação</h2>
-                    <p>Ative ou desative os alertas sonoros e notificações do navegador.</p>
+
+                    <p>
+                        Ative ou desative as notificações do navegador
+                        para receber avisos dos horários cadastrados.
+                    </p>
+
+                    <div class="botoes-notificacao">
+
+                        <button
+                            type="button"
+                            onclick="ativarNotificacoes()">
+                            Ativar notificações
+                        </button>
+
+                        <button
+                            type="button"
+                            class="btn-desativar"
+                            onclick="desativarNotificacoes()">
+                            Desativar notificações
+                        </button>
+
+                    </div>
+
+                    <p id="statusNotificacao" role="status"
+                       aria-live="polite">
+                        Verificando preferências...
+                    </p>
                 </section>
             </section>
 
         </main>
     </div>
 
-    <!-- Conexão com o JavaScript -->
-    <script src="script.js">
-        
+    <!-- CONEXÃO COM O JAVASCRIPT -->
+    <script src="script.js"></script>
+    <script>
+        lucide.createIcons();
     </script>
+
 </body>
 </html>

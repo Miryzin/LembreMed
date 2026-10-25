@@ -91,3 +91,76 @@ window.removerMedicamento = function(index) {
 
 // Executa a listagem inicial assim que a página abre
 renderizarMedicamentos();
+
+// Adicionando novas modificações - Tai
+
+// Verifica se as notificações estão ativadas
+let notificacoesAtivas =
+    localStorage.getItem('notificacoesAtivas') === 'true';
+
+// Solicita autorização ao usuário
+async function ativarNotificacoes() {
+    if (!('Notification' in window)) {
+        alert('Seu navegador não suporta notificações.');
+        return;
+    }
+
+    const permissao = await Notification.requestPermission();
+
+    if (permissao === 'granted') {
+        notificacoesAtivas = true;
+        localStorage.setItem('notificacoesAtivas', 'true');
+
+        alert('Notificações ativadas com sucesso!');
+    } else {
+        alert('Permissão para notificações não concedida.');
+    }
+}
+
+// Desativa os lembretes
+function desativarNotificacoes() {
+    notificacoesAtivas = false;
+    localStorage.setItem('notificacoesAtivas', 'false');
+}
+
+// Verifica se chegou o horário de algum medicamento
+function verificarHorarios() {
+    if (
+        !notificacoesAtivas ||
+        !('Notification' in window) ||
+        Notification.permission !== 'granted'
+    ) {
+        return;
+    }
+
+    const agora = new Date();
+
+    const horarioAtual =
+        String(agora.getHours()).padStart(2, '0') + ':' +
+        String(agora.getMinutes()).padStart(2, '0');
+
+    const dataAtual = [
+        agora.getFullYear(),
+        String(agora.getMonth() + 1).padStart(2, '0'),
+        String(agora.getDate()).padStart(2, '0')
+    ].join('-');
+
+    medicamentos.forEach((med, index) => {
+        const chave = `lembrete-${dataAtual}-${index}-${med.nome}-${med.horario}`;
+
+        if (
+            med.horario === horarioAtual &&
+            !localStorage.getItem(chave)
+        ) {
+            new Notification('LembreteMed', {
+                body: `Está na hora do lembrete: ${med.nome}.`
+            });
+
+            localStorage.setItem(chave, 'true');
+        }
+    });
+}
+
+// Verifica os horários periodicamente
+setInterval(verificarHorarios, 15000);
+verificarHorarios();
