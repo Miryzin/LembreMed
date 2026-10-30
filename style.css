@@ -6,8 +6,6 @@
 body {
     margin: 0;
     font-family: Arial, Helvetica, sans-serif;
-    background-color: #f5f8f6;
-    color: #20332f;
 }
 
 /* Coloca o menu e o conteúdo lado a lado */
@@ -22,6 +20,7 @@ body {
     background-color: #dcefe8;
     padding: 25px 20px;
     flex-shrink: 0;
+    box-shadow: 2px 0 10px rgba(22, 5, 88, 0.1);
 }
 
 /* Título do menu */
@@ -40,6 +39,7 @@ body {
     padding: 15px 10px;
     margin-bottom: 8px;
     border-radius: 8px;
+    box-shadow: 2px 0 10px rgba(22, 5, 88, 0.1);
 }
 
 /* Ícones do menu */
@@ -64,6 +64,7 @@ body {
     flex: 1;
     min-width: 0;
     padding: 35px;
+    background-color: #f3f9f7;
 }
 
 /* Cartões de conteúdo */
