@@ -16,7 +16,7 @@ menuLinks.forEach(link => {
         // Remove a classe 'active' de todos os links
         menuLinks.forEach(l => l.style.backgroundColor = 'transparent');
         // Destaca o link clicado
-        this.style.backgroundColor = '#b9dfd0';
+        this.style.backgroundColor = '#b3dfcd';
 
         // Pega o ID da seção alvo através do atributo data-target
         const targetId = this.getAttribute('data-target');
@@ -40,7 +40,7 @@ function renderizarMedicamentos() {
     listaMedicamentos.innerHTML = '';
 
     if (medicamentos.length === 0) {
-        listaMedicamentos.innerHTML = '<li id="mensagemVazia">Nenhum medicamento cadastrado ainda.</li>';
+        listaMedicamentos.innerHTML = '<li id="mensagemVazia">Nenhum medicamento cadastrado.</li>';
         return;
     }
 
