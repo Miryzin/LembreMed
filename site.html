@@ -16,32 +16,31 @@
         <aside class="menu">
             <h2>LembreMed</h2>
 
-<nav>
-    <a href="#" class="menu-link active"
-       data-target="secao-inicio">
-        <i data-lucide="house"></i>
-        <span>Início</span>
-    </a>
+            <nav>
+                <a href="#" class="menu-link active" data-target="secao-inicio">
+                <i data-lucide="house"></i>
+                <span>Início</span>
+                </a>
 
-    <a href="#" class="menu-link"
-       data-target="secao-agenda">
-        <i data-lucide="calendar-days"></i>
-        <span>Agenda</span>
-    </a>
+                <a href="#" class="menu-link"
+                data-target="secao-agenda">
+                    <i data-lucide="calendar-days"></i>
+                    <span>Agenda</span>
+                </a>
 
-    <a href="#" class="menu-link"
-       data-target="secao-novo">
-        <i data-lucide="pill"></i>
-        <span>Novo Medicamento</span>
-    </a>
+                <a href="#" class="menu-link"
+                data-target="secao-novo">
+                    <i data-lucide="pill"></i>
+                    <span>Novo Medicamento</span>
+                </a>
 
-    <a href="#" class="menu-link"
-       data-target="secao-config">
-        <i data-lucide="settings"></i>
-        <span>Configurações</span>
-        </a>
-    </nav>
-</aside>
+                <a href="#" class="menu-link"
+                data-target="secao-config">
+                    <i data-lucide="settings"></i>
+                    <span>Configurações</span>
+                </a>
+            </nav>
+        </aside>
 
         <!-- CONTEÚDO PRINCIPAL -->
         <main class="conteudo">
@@ -54,16 +53,15 @@
                 <div class="card">
                     <h2>Resumo do Dia</h2>
 
-                    <p>
-                        Você tem
+                    <p>Você tem
                         <strong id="quantidadeMedicamentos">0</strong>
                         medicamento(s) cadastrado(s).
                     </p>
 
-                    <p>
-                        Próximo horário:
+                    <p> Próximo horário:
                         <strong id="proximoHorario">Nenhum horário cadastrado</strong>
                     </p>
+
                 </div>
             </section>
 
@@ -101,7 +99,6 @@
                     <h2>Adicionar medicamento</h2>
 
                     <form id="formMedicamento">
-
                         <label for="medicamento">
                             Nome do medicamento:
                         </label>
@@ -112,7 +109,6 @@
                             placeholder="Ex.: Medicamento prescrito"
                             required
                         >
-
                         <label for="horario">Horário:</label>
 
                         <input
@@ -120,7 +116,6 @@
                             id="horario"
                             required
                         >
-
                         <button type="submit">Adicionar</button>
 
                     </form>
@@ -138,35 +133,28 @@
                 <section class="card">
                     <h2>Preferências de Notificação</h2>
 
-                    <p>
-                        Ative ou desative as notificações do navegador
-                        para receber avisos dos horários cadastrados.
+                    <p> 
+                        Ative ou desative as notificações do navegador para receber avisos dos horários cadastrados.
                     </p>
 
                     <div class="botoes-notificacao">
 
-                        <button
-                            type="button"
-                            onclick="ativarNotificacoes()">
+                        <button type="button" onclick="ativarNotificacoes()">
                             Ativar notificações
                         </button>
 
-                        <button
-                            type="button"
-                            class="btn-desativar"
-                            onclick="desativarNotificacoes()">
+                        <button type="button" class="btn-desativar" onclick="desativarNotificacoes()">
                             Desativar notificações
                         </button>
 
                     </div>
 
-                    <p id="statusNotificacao" role="status"
-                       aria-live="polite">
+                    <p id="statusNotificacao" role="status" aria-live="polite">
                         Verificando preferências...
                     </p>
+
                 </section>
             </section>
-
         </main>
     </div>
 
@@ -177,4 +165,6 @@
     </script>
 
 </body>
+
+
 </html>
